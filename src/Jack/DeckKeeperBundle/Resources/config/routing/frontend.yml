@@ -1,0 +1,3 @@
+frontend_deck_keeper_index:
+    pattern:    /
+    defaults:   { _controller: JackDeckKeeperBundle:Card:index }

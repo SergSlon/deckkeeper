@@ -1,0 +1,10 @@
+_locale_redirect:
+     path: /
+     defaults:
+         _controller: FrameworkBundle:Redirect:urlRedirect
+         path: /en
+         permanent: true
+
+_deckkeeper:
+    resource: "@JackDeckKeeperBundle/Resources/config/routing/frontend.yml"
+    prefix:   /{_locale}
