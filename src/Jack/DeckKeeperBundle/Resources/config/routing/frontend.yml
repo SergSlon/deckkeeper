@@ -2,6 +2,10 @@ frontend_deck_keeper_index:
     pattern:    /
     defaults:   { _controller: JackDeckKeeperBundle:Card:index }
 
+frontend_deck_keeper_new:
+    pattern:    /add-card
+    defaults:   { _controller: JackDeckKeeperBundle:Card:new }
+
 frontend_deck_keeper_card:
     pattern:    /{slug}
     defaults:   { _controller: JackDeckKeeperBundle:Card:card }
