@@ -118,6 +118,13 @@ class Card
     private $number;
 
     /**
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
      * Get id
      *
      * @return integer

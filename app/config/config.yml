@@ -75,3 +75,8 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+sensio_framework_extra:
+    request:
+        converters: true
+        auto_convert: false
