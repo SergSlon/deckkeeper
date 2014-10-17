@@ -17,7 +17,9 @@
                                 <div class="row">
                                     <div class="col-xs-9">
                                         <p>{{ card.description }}</p>
-                                        <p class="lead"><button class="btn btn-default">More &DoubleRightArrow;</button></p>
+                                        <a href="{{ path('frontend_deck_keeper_card', {'slug': card.slug}) }}">
+                                            <p class="lead"><button class="btn btn-default">More &DoubleRightArrow;</button></p>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

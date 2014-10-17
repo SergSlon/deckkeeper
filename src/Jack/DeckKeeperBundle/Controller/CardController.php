@@ -20,4 +20,22 @@ class CardController extends Controller
             'cards' => $cards,
         ));
     }
+
+    public function cardAction($slug)
+    {
+        $card = $this
+            ->getDoctrine()
+            ->getRepository('JackDeckKeeperBundle:Card')
+            ->findOneBy(['slug' => $slug])
+        ;
+
+        if (!$card) {
+            throw $this->createNotFoundException();
+        }
+
+
+        return $this->render('JackDeckKeeperBundle:Card:card.html.twig', array(
+            'card' => $card,
+        ));
+    }
 }

@@ -1,0 +1,32 @@
+{% extends "JackDeckKeeperBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-3 text-center">
+                            <a class="story-img" href="#">
+                                <img src="//placehold.it/100" style="width:100px;height:100px" class="img-circle">
+                            </a>
+                        </div>
+                        <div class="col-md-10 col-sm-9">
+                            <h3>{{ card.name }}</h3>
+                            <div class="row">
+                                <div class="col-xs-9">
+                                    <p>Mana Cost: {{ card.manaCost }}</p>
+                                    <p>{{ card.type }} - {{ card.subType }}</p>
+                                    <p>{{ card.description }}</p>
+                                    <em><p>{{ card.artisticdescription }}</p></em>
+                                    <p>Power/Toughness: {{ card.power }}/{{ card.toughness }}</p>
+                                    <p>({{ card.number }}) {{ card.artist }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
