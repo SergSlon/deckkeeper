@@ -2,16 +2,25 @@
 
 namespace Jack\DeckKeeperBundle\DataFixtures\ORM;
 
-use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Jack\DeckKeeperBundle\Entity\Card;
-use Jack\DeckKeeperBundle\Proxy\CardProxy;
 
-class LoadCardData implements FixtureInterface, OrderedFixtureInterface
+class LoadCardData implements FixtureInterface, OrderedFixtureInterface, ContainerAwareInterface
 {
+    protected $container;
+
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
     public function getOrder()
     {
         return 20;
@@ -75,6 +84,17 @@ class LoadCardData implements FixtureInterface, OrderedFixtureInterface
             ->setNumber(9)
         ;
         $manager->persist($erase);
+
+        $uploadableManager = $this->container->get('stof_doctrine_extensions.uploadable.manager');
+
+        $image1 = new UploadedFile(__DIR__.'/Images/1.jpg', '1.jpg');
+        $uploadableManager->markEntityToUpload($abzanBattlePriest, $image1);
+
+        $image2 = new UploadedFile(__DIR__.'/Images/2.jpg', '2.jpg');
+        $uploadableManager->markEntityToUpload($abzanFalconer, $image2);
+
+        $image9 = new UploadedFile(__DIR__.'/Images/9.jpg', '9.jpg');
+        $uploadableManager->markEntityToUpload($erase, $image9);
 
         $manager->flush();
     }
