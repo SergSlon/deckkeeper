@@ -7,8 +7,12 @@
     <!--
     <parameters>
     </parameters>
+    -->
 
     <services>
+        <service id="jack.card_logger" class="Jack\DeckKeeperBundle\CardLogger">
+            <argument type="service" id="logger" />
+        </service>
     </services>
-    -->
+
 </container>

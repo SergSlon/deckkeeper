@@ -27,6 +27,8 @@ class CardController extends Controller
      */
     public function cardAction(Card $card)
     {
+        $this->get('jack.card_logger')->logCard($card);
+
         return $this->render('JackDeckKeeperBundle:Card:card.html.twig', array(
             'card' => $card,
         ));
