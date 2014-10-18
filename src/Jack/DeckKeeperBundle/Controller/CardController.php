@@ -43,6 +43,12 @@ class CardController extends Controller
             $card = $form->getData();
             $em = $this->getDoctrine()->getManager();
             $em->persist($card);
+
+            if ($imageFile = $card->getImageFile()) {
+                $uploadableManager = $this->get('stof_doctrine_extensions.uploadable.manager');
+                $uploadableManager->markEntityToUpload($card, $imageFile);
+            }
+
             $em->flush();
 
             return $this->redirect($this->generateUrl('frontend_deck_keeper_index'));

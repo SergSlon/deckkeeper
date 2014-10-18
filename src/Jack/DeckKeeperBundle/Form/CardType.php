@@ -28,6 +28,7 @@ class CardType extends AbstractType
             ->add('toughness')
             ->add('artist')
             ->add('number')
+            ->add('imageFile', 'file')
         ;
 
     }

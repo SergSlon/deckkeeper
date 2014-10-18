@@ -72,9 +72,12 @@ swiftmailer:
     spool:     { type: memory }
 
 stof_doctrine_extensions:
+    uploadable:
+        default_file_path: %kernel.root_dir%/../web/uploads
     orm:
         default:
             sluggable: true
+            uploadable: true
 
 sensio_framework_extra:
     request:
