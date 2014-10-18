@@ -14,7 +14,7 @@ class CardController extends Controller
         $cards = $this
             ->getDoctrine()
             ->getRepository('JackDeckKeeperBundle:Card')
-            ->findAll()
+            ->findToughnessGreaterThen(2)
         ;
 
         return $this->render('JackDeckKeeperBundle:Card:index.html.twig', array(
